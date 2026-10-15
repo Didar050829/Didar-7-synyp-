@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Информатика 7 сынып - AR</title>
+  <title>Архиваторлар - AR</title>
 
   <!-- Подключение AR библиотек -->
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
 
   <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
+    body { margin: 0; overflow: hidden; }
     #ui-container {
       position: absolute;
       top: 15px;
@@ -25,17 +22,15 @@
       padding: 10px 20px;
       border-radius: 20px;
       font-family: sans-serif;
-      font-size: 15px;
+      font-size: 14px;
       text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
 
-  <!-- Подсказка на экране -->
   <div id="ui-container">
-    📱 Камераны кітаптағы суретке бағыттаңыз
+    📱 Камераны архиватор суретіне бағыттаңыз
   </div>
 
   <!-- AR Сцена -->
@@ -48,26 +43,40 @@
     
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <!-- То, что появляется при наведении на картинку -->
+    <!-- Привязка к картинке -->
     <a-entity mindar-image-target="targetIndex: 0">
       
-      <!-- Красивая анимированная рамка или плашка, которая «оживает» и мигает (меняет прозрачность) -->
-      <a-plane 
-        position="0 0 0.1" 
-        rotation="0 0 0" 
-        width="1" 
-        height="0.6" 
-        material="color: #ffffff; shader: flat; transparent: true; opacity: 0.9;"
-        animation="property: material.opacity; from: 0.4; to: 1; dir: alternate; loop: true; dur: 800">
-      </a-plane>
+      <!-- 1-я кнопка "Добавить" (прыгает вверх-вниз) -->
+      <a-box 
+        position="-0.3 0.2 0.05" 
+        scale="0.2 0.1 0.02" 
+        color="#ff3333"
+        animation="property: position; to: -0.3 0.25 0.05; dir: alternate; loop: true; dur: 500">
+      </a-box>
 
-      <!-- Текст или значок поверх ожившей картинки -->
-      <a-text 
-        value="Компьютер түрлері" 
-        position="-0.35 0.2 0.15" 
-        scale="0.5 0.5 0.5" 
-        color="#000000">
-      </a-text>
+      <!-- 2-я кнопка "Просмотр" (прыгает) -->
+      <a-box 
+        position="0.3 0.2 0.05" 
+        scale="0.2 0.1 0.02" 
+        color="#33ff33"
+        animation="property: position; to: 0.3 0.25 0.05; dir: alternate; loop: true; dur: 600">
+      </a-box>
+
+      <!-- 3-я кнопка "Извлечь" (прыгает) -->
+      <a-box 
+        position="-0.3 0 0.05" 
+        scale="0.2 0.1 0.02" 
+        color="#3333ff"
+        animation="property: position; to: -0.3 0.05 0.05; dir: alternate; loop: true; dur: 550">
+      </a-box>
+
+      <!-- 4-я кнопка "Найти" (прыгает) -->
+      <a-box 
+        position="0.3 0 0.05" 
+        scale="0.2 0.1 0.02" 
+        color="#ffff33"
+        animation="property: position; to: 0.3 0.05 0.05; dir: alternate; loop: true; dur: 650">
+      </a-box>
 
     </a-entity>
   </a-scene>
