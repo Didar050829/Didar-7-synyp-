@@ -30,7 +30,7 @@
 <body>
 
   <div id="ui-container">
-    📱 Камераны архиватор суретіне бағыттаңыз
+    📱 Камераны суретке бағыттаңыз
   </div>
 
   <!-- AR Сцена -->
@@ -43,40 +43,16 @@
     
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <!-- Привязка к картинке -->
+    <!-- Привязка к маркеру -->
     <a-entity mindar-image-target="targetIndex: 0">
       
-      <!-- 1-я кнопка "Добавить" (прыгает вверх-вниз) -->
-      <a-box 
-        position="-0.3 0.2 0.05" 
-        scale="0.2 0.1 0.02" 
-        color="#ff3333"
-        animation="property: position; to: -0.3 0.25 0.05; dir: alternate; loop: true; dur: 500">
-      </a-box>
-
-      <!-- 2-я кнопка "Просмотр" (прыгает) -->
-      <a-box 
-        position="0.3 0.2 0.05" 
-        scale="0.2 0.1 0.02" 
-        color="#33ff33"
-        animation="property: position; to: 0.3 0.25 0.05; dir: alternate; loop: true; dur: 600">
-      </a-box>
-
-      <!-- 3-я кнопка "Извлечь" (прыгает) -->
-      <a-box 
-        position="-0.3 0 0.05" 
-        scale="0.2 0.1 0.02" 
-        color="#3333ff"
-        animation="property: position; to: -0.3 0.05 0.05; dir: alternate; loop: true; dur: 550">
-      </a-box>
-
-      <!-- 4-я кнопка "Найти" (прыгает) -->
-      <a-box 
-        position="0.3 0 0.05" 
-        scale="0.2 0.1 0.02" 
-        color="#ffff33"
-        animation="property: position; to: 0.3 0.05 0.05; dir: alternate; loop: true; dur: 650">
-      </a-box>
+      <!-- Сама картинка с архиваторами, которая появится на экране и будет прыгать -->
+      <a-image 
+        src="arhivator.png" 
+        position="0 0 0.1" 
+        scale="1 0.6 1"
+        animation="property: position; to: 0 0.1 0.1; dir: alternate; loop: true; dur: 600">
+      </a-image>
 
     </a-entity>
   </a-scene>
