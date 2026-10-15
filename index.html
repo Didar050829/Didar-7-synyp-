@@ -16,23 +16,26 @@
     }
     #ui-container {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 999;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
+      padding: 10px 20px;
+      border-radius: 20px;
       font-family: sans-serif;
-      font-size: 14px;
+      font-size: 15px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
 
-  <!-- Подсказка для пользователя на экране -->
+  <!-- Подсказка на экране -->
   <div id="ui-container">
-    Камераны суретке бағыттаңыз (Наведите камеру на рисунок)
+    📱 Камераны кітаптағы суретке бағыттаңыз
   </div>
 
   <!-- AR Сцена -->
@@ -45,15 +48,27 @@
     
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <!-- 3D Объект, который появится и будет крутиться над картинкой -->
+    <!-- То, что появляется при наведении на картинку -->
     <a-entity mindar-image-target="targetIndex: 0">
-      <!-- Вращающийся куб (можно заменить на любую 3D модель) -->
-      <a-box 
-        position="0 0 0.2" 
+      
+      <!-- Красивая анимированная рамка или плашка, которая «оживает» и мигает (меняет прозрачность) -->
+      <a-plane 
+        position="0 0 0.1" 
+        rotation="0 0 0" 
+        width="1" 
+        height="0.6" 
+        material="color: #ffffff; shader: flat; transparent: true; opacity: 0.9;"
+        animation="property: material.opacity; from: 0.4; to: 1; dir: alternate; loop: true; dur: 800">
+      </a-plane>
+
+      <!-- Текст или значок поверх ожившей картинки -->
+      <a-text 
+        value="Компьютер түрлері" 
+        position="-0.35 0.2 0.15" 
         scale="0.5 0.5 0.5" 
-        material="color: #4CC3D9; transparent: true; opacity: 0.9;" 
-        animation="property: rotation; to: 0 360 360; loop: true; dur: 4000">
-      </a-box>
+        color="#000000">
+      </a-text>
+
     </a-entity>
   </a-scene>
 
